@@ -1,0 +1,137 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #eef2f7; /* soft gradient for a modern look */
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Headings */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+button, .btn {
+    background: linear-gradient(135deg, #4CAF50, #43a047);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(135deg, #43a047, #388e3c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Input Fields */
+input[type="text"], input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.25);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+th, td {
+    text-align: left;
+    padding: 16px 12px;
+    font-size: 15px;
+}
+
+th {
+    background: linear-gradient(135deg, #4CAF50, #43a047);
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f6f9f8;
+}
+
+tr:hover {
+    background-color: #e1f5e1;
+    transition: background 0.3s ease;
+}
+
+/* Links */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #388e3c;
+}
+
+/* Forms */
+form {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    button, .btn {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+}

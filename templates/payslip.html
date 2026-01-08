@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAYSLIP - {{ employee['name'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding-top: 60px;
+            position: relative;
+        }
+        .card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h2 { text-align: center; margin-bottom: 25px; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: #3A8DFF;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover { background: #3378d6; }
+
+        /* Print button outside card, top-right corner of page */
+        .print-btn {
+            background: #28a745;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+        }
+        .print-btn:hover { background: #218838; }
+
+        /* Hide buttons when printing */
+        @media print {
+            body { background: white; }
+            .btn { display: none; }
+            .card { box-shadow: none; border-radius: 0; width: 100%; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Print button on top-right of page -->
+    <button class="btn print-btn" onclick="window.print();">
+        <i class="fa fa-print"></i> Print
+    </button>
+
+    <div class="card">
+        <h2>Payslip for {{ employee['name'] }}</h2>
+        <a href="/payroll" class="btn"><i class="fa fa-arrow-left"></i> Back to Payroll</a>
+
+        <table>
+            <tr><td>Basic Salary</td><td>{{ employee['basic'] }}</td></tr>
+            <tr><td>HRA (20%)</td><td>{{ "%.2f"|format(employee['basic']*0.20) }}</td></tr>
+            <tr><td>DA (10%)</td><td>{{ "%.2f"|format(employee['basic']*0.10) }}</td></tr>
+            <tr><td>PF (12%)</td><td>{{ "%.2f"|format(employee['basic']*0.12) }}</td></tr>
+            <tr><td>Gross Salary</td><td>{{ employee['gross'] }}</td></tr>
+            <tr><td>Net Salary</td><td>{{ employee['net'] }}</td></tr>
+        </table>
+    </div>
+</body>
+</html>
